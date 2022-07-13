@@ -280,6 +280,8 @@ class GitHubHelper:  # pylint: disable=missing-class-docstring
         if len(input_trees_list) > 0:
             new_git_tree = repository.create_git_tree(input_trees_list, base_tree=base_git_tree)
             parents = [repository.get_git_commit(sha)]
+            print(username)
+            print(self.github_user_email)
             author = InputGitAuthor(username, self.github_user_email)
             commit_sha = repository.create_git_commit(
                 commit_message, new_git_tree, parents, author=author, committer=author
