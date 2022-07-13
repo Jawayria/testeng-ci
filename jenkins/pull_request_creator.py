@@ -66,15 +66,13 @@ class PullRequestCreator:
 
     def _create_new_branch(self):
         LOGGER.info("updated files: {}".format(self.updated_files_list))
-        print(self.user.login)
-        print(self.user.name)
         commit_sha = self.github_helper.update_list_of_files(
             self.repository,
             self.repo_root,
             self.updated_files_list,
             self.commit_message,
             self.base_sha,
-            self.user.name
+            self.user.login
         )
         self._create_branch(commit_sha)
 
